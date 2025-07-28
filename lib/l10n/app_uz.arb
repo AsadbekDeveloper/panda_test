@@ -11,5 +11,6 @@
   "allowAccessButton": "Kirishga ruxsat berish",
   "specifyLocationButton": "Manzilni ko'rsatish",
   "longitude": "Uzunlik",
-  "latitude": "Kenglik"
+  "latitude": "Kenglik",
+  "openSettingsButton": "Sozlamalarni ochish"
 }

@@ -11,5 +11,6 @@
   "allowAccessButton": "Разрешить доступ",
   "specifyLocationButton": "Указать местоположение",
   "longitude": "Долгота",
-  "latitude": "Широта"
+  "latitude": "Широта",
+  "openSettingsButton": "Открыть настройки"
 }

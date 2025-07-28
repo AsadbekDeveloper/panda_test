@@ -175,6 +175,12 @@ abstract class AppLocalizations {
   /// In uz, this message translates to:
   /// **'Kenglik'**
   String get latitude;
+
+  /// No description provided for @openSettingsButton.
+  ///
+  /// In uz, this message translates to:
+  /// **'Sozlamalarni ochish'**
+  String get openSettingsButton;
 }
 
 class _AppLocalizationsDelegate

@@ -15,35 +15,54 @@ class LocationAccessPage extends StatefulWidget {
   State<LocationAccessPage> createState() => _LocationAccessPageState();
 }
 
-class _LocationAccessPageState extends State<LocationAccessPage> {
-  bool _isPermissionGranted = false;
+class _LocationAccessPageState extends State<LocationAccessPage> with WidgetsBindingObserver {
+  PermissionStatus? _status;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    super.didChangeAppLifecycleState(state);
+    if (state == AppLifecycleState.resumed) {
+      context.read<LocationBloc>().add(RequestPermissionEvent());
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 24),
+          padding: const EdgeInsets.symmetric(horizontal: 24),
           width: double.infinity,
           child: BlocConsumer<LocationBloc, LocationState>(
             listener: (context, state) {
               if (state is LocationPermissionGranted) {
-                if (state.status == PermissionStatus.granted) {
-                  setState(() {
-                    _isPermissionGranted = true;
-                  });
-                }
-              } else if (state is LocationLoaded) {
-                Navigator.pushNamed(context, '/home');
+                setState(() {
+                  _status = state.status;
+                });
               }
             },
             builder: (context, state) {
+              final isPermanentlyDenied = _status == PermissionStatus.permanentlyDenied;
+              final isGranted = _status == PermissionStatus.granted;
+
               return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(height: 34),
+                  const SizedBox(height: 34),
                   Image.asset('assets/icons/location.png'),
-                  Spacer(),
+                  const Spacer(),
                   Column(
                     children: [
                       Text(
@@ -63,21 +82,26 @@ class _LocationAccessPageState extends State<LocationAccessPage> {
                   Column(
                     children: [
                       CustomButton(
-                        label: AppLocalizations.of(context)!.allowAccessButton,
+                        label: isPermanentlyDenied
+                            ? AppLocalizations.of(context)!.openSettingsButton
+                            : AppLocalizations.of(context)!.allowAccessButton,
                         isExpanded: false,
                         width: double.infinity,
-                        onPressed: _isPermissionGranted
+                        onPressed: isGranted
                             ? null
                             : () {
-                                context.read<LocationBloc>().add(RequestPermissionEvent());
+                                if (isPermanentlyDenied) {
+                                  openAppSettings();
+                                } else {
+                                  context.read<LocationBloc>().add(RequestPermissionEvent());
+                                }
                               },
                       ),
                       const SizedBox(height: 16),
-
                       CustomButton(
                         isExpanded: false,
                         width: double.infinity,
-                        onPressed: _isPermissionGranted
+                        onPressed: isGranted
                             ? () {
                                 context.go('/home');
                               }
@@ -87,8 +111,7 @@ class _LocationAccessPageState extends State<LocationAccessPage> {
                       ),
                     ],
                   ),
-
-                  SizedBox(height: 50),
+                  const SizedBox(height: 50),
                 ],
               );
             },

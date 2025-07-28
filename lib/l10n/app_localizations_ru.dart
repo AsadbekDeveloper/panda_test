@@ -47,4 +47,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get latitude => 'Широта';
+
+  @override
+  String get openSettingsButton => 'Открыть настройки';
 }

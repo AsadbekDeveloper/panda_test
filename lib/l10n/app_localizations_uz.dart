@@ -47,4 +47,7 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get latitude => 'Kenglik';
+
+  @override
+  String get openSettingsButton => 'Sozlamalarni ochish';
 }
