@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:panda_test/l10n/app_localizations.dart';
 import 'package:panda_test/shared/widgets/custom_button.dart';
 
 class LocationAccessPage extends StatelessWidget {
@@ -20,28 +21,28 @@ class LocationAccessPage extends StatelessWidget {
               Column(
                 children: [
                   Text(
-                    'Разрешите доступ к геопозиции',
+                    AppLocalizations.of(context)!.allowLocationAccess,
                     style: Theme.of(context).textTheme.headlineMedium,
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(height: 24),
+                  const SizedBox(height: 24),
                   Text(
-                    'Так мы сможем показать интересные предложения и пункты выдачи-приёма рядом с вами',
+                    AppLocalizations.of(context)!.locationAccessDescription,
                     style: Theme.of(context).textTheme.bodySmall?.copyWith(fontSize: 18),
                     textAlign: TextAlign.center,
                   ),
                 ],
               ),
-              SizedBox(height: 36),
+              const SizedBox(height: 36),
               Column(
                 children: [
                   CustomButton(
                     isExpanded: false,
                     width: double.infinity,
                     onPressed: () {},
-                    label: 'Разрешить доступ',
+                    label: AppLocalizations.of(context)!.allowAccessButton,
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
 
                   CustomButton(
                     isExpanded: false,
@@ -50,7 +51,7 @@ class LocationAccessPage extends StatelessWidget {
                       context.go('/home');
                     },
                     type: CustomButtonType.bordered,
-                    label: 'Указать местоположение',
+                    label: AppLocalizations.of(context)!.specifyLocationButton,
                   ),
                 ],
               ),

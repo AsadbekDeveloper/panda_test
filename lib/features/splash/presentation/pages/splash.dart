@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:panda_test/l10n/app_localizations.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -40,13 +41,13 @@ class _SplashScreenState extends State<SplashScreen> {
                   Text('Panda', style: Theme.of(context).textTheme.displayLarge),
 
                   Text(
-                    'Покупай и продавай безопасно',
+                    AppLocalizations.of(context)!.buyAndSellSafely,
                     style: Theme.of(context).textTheme.headlineMedium,
                   ),
                 ],
               ),
-              Spacer(flex: 10),
-              Text('Проект для народа', style: Theme.of(context).textTheme.labelMedium),
+              const Spacer(flex: 10),
+              Text(AppLocalizations.of(context)!.projectForThePeople, style: Theme.of(context).textTheme.labelMedium),
 
               Spacer(flex: 3),
             ],

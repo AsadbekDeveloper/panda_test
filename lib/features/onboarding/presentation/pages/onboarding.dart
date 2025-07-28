@@ -1,81 +1,75 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:panda_test/features/onboarding/presentation/cubit/locale_cubit.dart';
+import 'package:panda_test/l10n/app_localizations.dart';
 import 'package:panda_test/shared/widgets/custom_button.dart';
 
-class OnboardingPage extends StatefulWidget {
+class OnboardingPage extends StatelessWidget {
   const OnboardingPage({super.key});
 
   @override
-  State<OnboardingPage> createState() => _OnboardingPageState();
-}
-
-class _OnboardingPageState extends State<OnboardingPage> {
-  bool isRussian = false;
-
-  @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final currentLocale = context.watch<LocaleCubit>().state.locale;
+
     return Scaffold(
       body: SafeArea(
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 24),
+          padding: const EdgeInsets.symmetric(horizontal: 24),
           width: double.infinity,
           child: Column(
             children: [
-              SizedBox(height: 110),
+              const SizedBox(height: 110),
               Column(
                 children: [
                   SvgPicture.asset('assets/icons/panda.svg', width: 240),
-                  SizedBox(height: 36),
+                  const SizedBox(height: 36),
                   Text('Panda', style: Theme.of(context).textTheme.displayLarge),
                 ],
               ),
-              Spacer(),
+              const Spacer(),
               Column(
                 children: [
                   Text(
-                    'Выберите язык приложения',
+                    l10n.chooseLanguage,
                     style: Theme.of(context).textTheme.headlineMedium,
                   ),
-                  SizedBox(height: 36),
-
+                  const SizedBox(height: 36),
                   Row(
                     children: [
                       CustomButton(
-                        type: isRussian ? CustomButtonType.bordered : CustomButtonType.filled,
-                        label: "O’zbekcha",
-                        onPressed: () {
-                          setState(() {
-                            isRussian = false;
-                          });
-                        },
+                        type: currentLocale.languageCode == 'uz'
+                            ? CustomButtonType.filled
+                            : CustomButtonType.bordered,
+                        label: 'O\'zbekcha',
+                        onPressed: () =>
+                            context.read<LocaleCubit>().toUzbek(),
                       ),
-                      SizedBox(width: 16),
+                      const SizedBox(width: 16),
                       CustomButton(
-                        type: isRussian ? CustomButtonType.filled : CustomButtonType.bordered,
-                        label: 'Русский',
-                        onPressed: () {
-                          setState(() {
-                            isRussian = true;
-                          });
-                        },
+                        type: currentLocale.languageCode == 'ru'
+                            ? CustomButtonType.filled
+                            : CustomButtonType.bordered,
+                        label: 'Русский',
+                        onPressed: () =>
+                            context.read<LocaleCubit>().toRussian(),
                       ),
                     ],
                   ),
-                  SizedBox(height: 16),
-
+                  const SizedBox(height: 16),
                   CustomButton(
                     isExpanded: false,
                     width: double.infinity,
                     onPressed: () {
                       context.push('/location-access');
                     },
-                    label: 'Продолжить',
+                    label: l10n.continueButton,
                   ),
                 ],
               ),
-
-              SizedBox(height: 50),
+              const SizedBox(height: 50),
             ],
           ),
         ),

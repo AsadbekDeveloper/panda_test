@@ -1,0 +1,13 @@
+{
+  "welcome": "Добро пожаловать",
+  "chooseLanguage": "Выберите язык приложения",
+  "continueButton": "Продолжить",
+  "buyAndSellSafely": "Покупай и продавай безопасно",
+  "projectForThePeople": "Проект для народа",
+  "homePageTitle": "Домашняя страница",
+  "welcomeToHomePage": "Добро пожаловать на домашнюю страницу",
+  "allowLocationAccess": "Разрешите доступ к геопозиции",
+  "locationAccessDescription": "Так мы сможем показать интересные предложения и пункты выдачи-приёма рядом с вами",
+  "allowAccessButton": "Разрешить доступ",
+  "specifyLocationButton": "Указать местоположение"
+}

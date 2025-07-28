@@ -1,0 +1,13 @@
+{
+  "welcome": "Xush kelibsiz",
+  "chooseLanguage": "Ilova tilini tanlang",
+  "continueButton": "Davom etish",
+  "buyAndSellSafely": "Xavfsiz sotib oling va soting",
+  "projectForThePeople": "Xalq uchun loyiha",
+  "homePageTitle": "Bosh sahifa",
+  "welcomeToHomePage": "Bosh sahifaga xush kelibsiz",
+  "allowLocationAccess": "Geolokatsiyaga ruxsat bering",
+  "locationAccessDescription": "Shu orqali biz sizga yaqin joylashgan qiziqarli takliflar va qabul qilish punktlarini ko'rsatishimiz mumkin",
+  "allowAccessButton": "Kirishga ruxsat berish",
+  "specifyLocationButton": "Manzilni ko'rsatish"
+}
