@@ -47,7 +47,10 @@ class _SplashScreenState extends State<SplashScreen> {
                 ],
               ),
               const Spacer(flex: 10),
-              Text(AppLocalizations.of(context)!.projectForThePeople, style: Theme.of(context).textTheme.labelMedium),
+              Text(
+                AppLocalizations.of(context)!.projectForThePeople,
+                style: Theme.of(context).textTheme.labelMedium,
+              ),
 
               Spacer(flex: 3),
             ],
