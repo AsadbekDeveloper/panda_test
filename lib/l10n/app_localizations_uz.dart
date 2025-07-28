@@ -41,4 +41,10 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get specifyLocationButton => 'Manzilni ko\'rsatish';
+
+  @override
+  String get longitude => 'Uzunlik';
+
+  @override
+  String get latitude => 'Kenglik';
 }

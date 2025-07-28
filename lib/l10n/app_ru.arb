@@ -9,5 +9,7 @@
   "allowLocationAccess": "Разрешите доступ к геопозиции",
   "locationAccessDescription": "Так мы сможем показать интересные предложения и пункты выдачи-приёма рядом с вами",
   "allowAccessButton": "Разрешить доступ",
-  "specifyLocationButton": "Указать местоположение"
+  "specifyLocationButton": "Указать местоположение",
+  "longitude": "Долгота",
+  "latitude": "Широта"
 }

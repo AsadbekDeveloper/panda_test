@@ -9,5 +9,7 @@
   "allowLocationAccess": "Geolokatsiyaga ruxsat bering",
   "locationAccessDescription": "Shu orqali biz sizga yaqin joylashgan qiziqarli takliflar va qabul qilish punktlarini ko'rsatishimiz mumkin",
   "allowAccessButton": "Kirishga ruxsat berish",
-  "specifyLocationButton": "Manzilni ko'rsatish"
+  "specifyLocationButton": "Manzilni ko'rsatish",
+  "longitude": "Uzunlik",
+  "latitude": "Kenglik"
 }

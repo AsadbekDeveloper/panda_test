@@ -163,6 +163,18 @@ abstract class AppLocalizations {
   /// In uz, this message translates to:
   /// **'Manzilni ko\'rsatish'**
   String get specifyLocationButton;
+
+  /// No description provided for @longitude.
+  ///
+  /// In uz, this message translates to:
+  /// **'Uzunlik'**
+  String get longitude;
+
+  /// No description provided for @latitude.
+  ///
+  /// In uz, this message translates to:
+  /// **'Kenglik'**
+  String get latitude;
 }
 
 class _AppLocalizationsDelegate

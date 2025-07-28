@@ -41,4 +41,10 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get specifyLocationButton => 'Указать местоположение';
+
+  @override
+  String get longitude => 'Долгота';
+
+  @override
+  String get latitude => 'Широта';
 }
