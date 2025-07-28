@@ -14,6 +14,7 @@ class LocationRemoteDataSourceImpl implements LocationRemoteDataSource {
 
   @override
   Future<PermissionStatus> requestPermission() async {
+    await Permission.location.request();
     return await Permission.location.request();
   }
 }
